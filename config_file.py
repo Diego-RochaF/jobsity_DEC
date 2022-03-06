@@ -1,0 +1,2 @@
+tripsFileSourcePath = './tripsSource/'
+
