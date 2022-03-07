@@ -8,11 +8,11 @@ GRANT ALL PRIVILEGES ON jobsity_DEC_AUDIT.* TO 'jobsity'@'%';
 USE jobsity_DEC_AUDIT;
 CREATE TABLE IF NOT EXISTS auditlogs(
     logid INT NOT NULL AUTO_INCREMENT,
-    execid INT NOT NULL,
+    execid DOUBLE NOT NULL,
     db_name varchar(100) NOT NULL,
     action_dsc varchar(100) NOT NULL,
     status_action varchar(20) NOT NULL,
     log_datetime datetime NOT NULL,
-    addt_info varchar(300),
+    addt_info TEXT,
     PRIMARY KEY (logid)
 );
