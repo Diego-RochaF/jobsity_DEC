@@ -52,8 +52,10 @@ def main():
     # ingest all *.csv files into raw
     registerLOG(execID, config_file.RAW_DATABASE, 'EXTRACTION',
                 'STARTED', datetime.now(), 'Started CSV Extraction Process')
+
     try:
         for filename in glob.glob(os.path.join(tripsFilePath, '*.csv')):
+
             # Transforms the current file into a Pandas Dataframe
             dfTripsRaw = importTripsSource(filename)
             dfTripsRaw.to_sql('trips', mysqlengine_raw, if_exists='append',
