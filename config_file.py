@@ -1,4 +1,4 @@
-tripsFileSourcePath = './tripsSource/'
+tripsFileSourcePath = 'tripsSource/'
 SQL_DATABASE_SERVER = '172.17.0.2'
 SQL_DATABASE_PORT = '3306'
 SQL_DATABASE_USER = 'jobsity'

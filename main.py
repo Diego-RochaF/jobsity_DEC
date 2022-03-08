@@ -54,7 +54,7 @@ def main():
                 'STARTED', datetime.now(), 'Started CSV Extraction Process')
 
     try:
-        for filename in glob.glob(os.path.join(tripsFilePath, '*.csv')):
+        for filename in glob.glob(os.path.join(os.path.dirname(__file__),tripsFilePath, '*.csv')):
 
             # Transforms the current file into a Pandas Dataframe
             dfTripsRaw = importTripsSource(filename)
