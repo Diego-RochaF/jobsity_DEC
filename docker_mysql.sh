@@ -20,6 +20,7 @@ else
     docker inspect $dockid | grep -i IPAddress
 
     echo '#Creating jobsity user and databases on mysql docker container'
-    docker exec -i mysql-container mysql -uroot -pjobsityDataEngineerChallenge < mysql/scripts/initial_structure.sql
+    sleep 120
+    sudo docker exec -i mysql-container mysql -uroot -pjobsityDataEngineerChallenge < mysql/initial_structure.sql
 
 fi
