@@ -72,7 +72,7 @@ def main():
                 'STARTED', datetime.now(), 'Started Trips Process')
     try:
         dfTripsCurated = pd.read_sql_query(
-            'SELECT region, origin_coord, destination_coord, `datetime`, count(`index`) cnt_trips FROM jobsity_DEC_RAW.trips group by region, origin_coord, destination_coord, `datetime`', mysqlengine_raw)
+            'SELECT region, origin_coord, destination_coord, `datetime`, count(`index`) cnt_trips FROM jobsity_DEC_RAW.trips group by region, origin_coord, destination_coord, `datetime`', mysqlengine_raw,chunksize=1000)
         dfTripsCurated['Date'] = pd.to_datetime(
             dfTripsCurated['datetime']).dt.date
         dfTripsCurated['Year'] = pd.to_datetime(
@@ -85,7 +85,7 @@ def main():
             dfTripsCurated['datetime']).dt.time
 
         dfTripsCurated
-        # print(dfTripsCurated.head())
+        
         dfTripsCurated.to_sql('trips_detailed', mysqlengine_cur,
                               if_exists='replace', index=True, chunksize=1000)
         registerLOG(execID, config_file.CURATED_DATABASE, 'TRANSFORM',

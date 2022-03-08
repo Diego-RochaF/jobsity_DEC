@@ -1,5 +1,5 @@
 # JOBSITY Data Engineering Challenge
 
-##Pre-Requirements to run this solution:
+Requirements to this solution:
 * Docker
 
